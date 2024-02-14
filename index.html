@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Joke Display</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #randomJoke {
+      font-size: 2em;
+      padding: 20px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bubbles {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .bubbles img {
+      width: 50px;
+      height: 50px;
+      animation: bubble 7s linear infinite;
+    }
+
+    @keyframes bubble {
+      0% {
+        transform: translateY(1);
+        opacity: 10;
+      }
+      50% {
+        opacity: 11;
+      }
+      70% {
+        opacity: 11;
+      }
+      100% {
+        transform: translateY(-80vh);
+        opacity: 11;
+      }
+    }
+
+    .bubbles img:nth-child(1) {
+      animation-delay: 2s;
+    }
+
+    .bubbles img:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .bubbles img:nth-child(3) {
+      animation-delay: 4.5s;
+    }
+
+    .bubbles img:nth-child(4) {
+      animation-delay: 3s;
+    }
+
+    .bubbles img:nth-child(5) {
+      animation-delay: 2.5s;
+    }
+
+    .bubbles img:nth-child(6) {
+      animation-delay: 5s;
+    }
+
+    .bubbles img:nth-child(7) {
+      animation-delay: 7s;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="/background.png" class="background-image">
+  <div class="container">
+    
+    <div id="randomJoke">
+      <!-- Joke content will be displayed here -->
+    </div>
+  </div>
+  <div class="bubbles">
+    <img src="/bubble.png" class="img">
+    <img src="/bubble.png" class="img">
+    <img src="/bubble.png" class="img">
+    <img src="/bubble.png" class="img">
+    <img src="/bubble.png" class="img">
+    <img src="/bubble.png" class="img">
+    <img src="/bubble.png" class="img">
+  </div>
+
+  <script>
+    const arr = ['What do kids play when their mom is using the phone? Bored games.', 'What do you call an ant who fights crime? A vigilANTe!', 'Why are snails slow? Because they’re carrying a house on their back.', 'What’s the smartest insect? A spelling bee!', 'What does a storm cloud wear under his raincoat? Thunderwear.', 'What is fast, loud and crunchy? A rocket chip.', 'How does the ocean say hi? It waves!', 'What do you call a couple of chimpanzees sharing an Amazon account? PRIME-mates.', 'Why did the teddy bear say no to dessert? Because she was stuffed.', 'Why did the soccer player take so long to eat dinner? Because he thought he couldn’t use his hands.', 'Name the kind of tree you can hold in your hand? A palm tree!', 'What do birds give out on Halloween? Tweets.', 'What has ears but cannot hear? A cornfield.', 'What’s a cat’s favorite dessert? A bowl full of mice-cream.', 'Where did the music teacher leave her keys? In the piano!', 'What did the policeman say to his hungry stomach? “Freeze. You’re under a vest.”', 'What did the left eye say to the right eye? Between us, something smells!', 'What do you call a guy who’s really loud? Mike.', 'Why do birds fly south in the winter? It’s faster than walking!', 'What did the lava say to his girlfriend? “I lava you!”'];
+
+    // Get a random joke from the array
+    const randomJoke = arr[Math.floor(Math.random() * arr.length)];
+
+    // Display the random joke in the HTML
+    const randomJokeElement = document.getElementById('randomJoke');
+    randomJokeElement.innerHTML = randomJoke;
+  </script>
+</body>
+
+</html>
